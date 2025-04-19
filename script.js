@@ -99,35 +99,35 @@ window.addEventListener('load', () => {
     }, 200); // igual al tiempo de fadeMode
 }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    // Inicializa EmailJS
-    emailjs.init("CQfLOBTxfMiPFbM0y"); // Tu public key
 
-    const form = document.getElementById('contact-form');
+document.addEventListener("DOMContentLoaded", function () {
+  // Inicializa EmailJS
+  emailjs.init("CQfLOBTxfMiPFbM0y");
 
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
+  const form = document.getElementById('contact-form');
 
-      // Enviar usando sendForm
-      emailjs.sendForm('service_hjdrs5n', 'template_ghf873t', this)
-        .then(function (response) {
-          console.log('Correo enviado con éxito al administrador', response);
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
 
-          // Mostrar modal o mensaje
-          mostrarModal(); // Asegurate de tener esta función definida
+    // Captura los valores del formulario
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
 
-          // Resetear el formulario
-          form.reset();
-        })
-        .catch(function (error) {
-          console.error('Error al enviar al administrador', error);
-          alert('Hubo un error al enviar tu mensaje. Intenta nuevamente.');
-        });
-    });
+    // Enviar el formulario al administrador
+    emailjs.sendForm('service_hjdrs5n', 'template_ghf873t', this)
+      .then(function (response) {
+        console.log('Correo enviado con éxito al administrador', response);
+
+        // Mostrar el modal personalizado
+        mostrarModal();
+
+        // Resetear el formulario
+        form.reset();
+      })
+      .catch(function (error) {
+        console.error('Error al enviar al administrador', error);
+        alert('Hubo un error al enviar tu mensaje. Intenta nuevamente.');
+      });
   });
-
-  function mostrarModal() {
-    const modal = document.getElementById('modal');
-    modal.style.display = 'block';
-    setTimeout(() => modal.style.display = 'none', 4000);
-  }
+});
