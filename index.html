@@ -16,6 +16,10 @@
   <!-- Librerías JS -->
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://unpkg.com/typewriter-effect@2.18.0/dist/core.js"></script>
+  <!-- JS Principal -->
+  <script src="script.js"></script>
+  <!-- EmailJS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
   <!-- Preloader -->
@@ -213,7 +217,7 @@
 
 
  <!-- CONTACTO -->
- <section id="contacto">
+<section id="contacto">
   <div class="ContainerForm">
     <form id="contact-form">
       <h2>Contactame</h2>
@@ -232,18 +236,73 @@
   </div>
 </section>
 
-  </main>
-  <div id="modal" style="display:none;">
-    <p>¡Gracias por tu mensaje!</p>
-    <button id="close-modal">Cerrar</button>
-  </div>  
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>&copy; 2025 - Martín Escudero. Sitio desarrollado con dedicación y pasión por el desarrollo web. Todos los derechos reservados.</p>
-  </footer>
-  <!-- JS Principal -->
-  <script src="script.js"></script>
-  <!-- EmailJS -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- Modal -->
+<div id="modal" style="display:none;">
+  <p>¡Gracias por tu mensaje!</p>
+  <button id="close-modal">Cerrar</button>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>&copy; 2025 - Martín Escudero. Sitio desarrollado con dedicación y pasión por el desarrollo web. Todos los derechos reservados.</p>
+</footer>
+
+<!-- EMAILJS -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Inicializa EmailJS
+  emailjs.init("CQfLOBTxfMiPFbM0y");
+
+  const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // Captura los valores del formulario
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    // Enviar el formulario al administrador
+    emailjs.sendForm('service_hjdrs5n', 'template_ghf873t', this)
+      .then(function (response) {
+        console.log('Correo enviado con éxito al administrador', response);
+
+        // Mostrar el modal personalizado
+        mostrarModal();
+
+        // Resetear el formulario
+        form.reset();
+      })
+      .catch(function (error) {
+        console.error('Error al enviar al administrador', error);
+        alert('Hubo un error al enviar tu mensaje. Intenta nuevamente.');
+      });
+  });
+
+  function mostrarModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'block';  // Mostrar el modal
+    modal.classList.add('show');  // Agregar la clase de transición de opacidad
+
+    // Configurar el cierre automático del modal después de 4 segundos
+    setTimeout(() => {
+      modal.style.display = 'none'; // Ocultar el modal después de 4 segundos
+      modal.classList.remove('show');
+    }, 4000);
+  }
+
+  // Función para cerrar el modal manualmente
+  const closeButton = document.getElementById('close-modal');
+  if (closeButton) {
+    closeButton.addEventListener('click', function () {
+      const modal = document.getElementById('modal');
+      modal.style.display = 'none'; // Cierra el modal manualmente
+      modal.classList.remove('show');
+    });
+  }
+});
+</script>
 </body>
 </html>
