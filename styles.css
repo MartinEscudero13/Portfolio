@@ -182,6 +182,7 @@ section {
     list-style: none;
     display: flex;
     gap: 1.5rem;
+ 
 }
 
 .nav-links a {
@@ -542,7 +543,6 @@ body.light-mode .progress-bar {
     .nav-links {
         display: none;
         flex-direction: column;
-        background-color: #2a9d8f;
         position: absolute;
         top: 60px;
         right: 2rem;
