@@ -518,7 +518,39 @@ body.light-mode .progress-bar {
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
-
+/* === MODAL === */
+#modal {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Empezará invisible */
+    transition: opacity 0.3s ease; /* Transición suave */
+  }
+  
+  #modal.show {
+    display: block; /* Muestra el modal */
+    opacity: 1; /* Lo hace visible */
+  }
+  
+  #modal button {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  #modal button:hover {
+    color: #2a9d8f; /* O el color que prefieras */
+  }
+  
 /* === ANIMACIONES === */
 @keyframes spin {
     to { transform: rotate(360deg); }

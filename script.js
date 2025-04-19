@@ -130,4 +130,23 @@ document.addEventListener("DOMContentLoaded", function () {
         alert('Hubo un error al enviar tu mensaje. Intenta nuevamente.');
       });
   });
+
+  function mostrarModal() {
+    const modal = document.getElementById('modal');
+    modal.classList.add('show');  // Agrega la clase que activa la animación
+
+    // Configurar el cierre automático del modal después de 4 segundos
+    setTimeout(() => {
+      modal.classList.remove('show');  // Elimina la clase que lo hace visible
+    }, 4000);
+  }
+
+  // Función para cerrar el modal manualmente
+  const closeButton = document.getElementById('close-modal');
+  if (closeButton) {
+    closeButton.addEventListener('click', function () {
+      const modal = document.getElementById('modal');
+      modal.classList.remove('show');
+    });
+  }
 });
