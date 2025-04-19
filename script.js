@@ -3,28 +3,6 @@ const toggleBtn = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 toggleBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
 
-// Validación del formulario
-const form = document.getElementById('formulario');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const inputs = form.querySelectorAll('input, textarea');
-  let valido = true;
-
-  inputs.forEach(input => {
-    if (!input.value.trim()) {
-      input.style.border = '1px solid red';
-      valido = false;
-    } else {
-      input.style.border = 'none';
-    }
-  });
-
-  if (valido) {
-    alert("Gracias por tu mensaje. Te responderé pronto.");
-    form.reset();
-  }
-});
-
 // Typing effect
 const typed = new Typewriter(document.getElementById('typed-text'), {
   loop: true,
@@ -99,3 +77,81 @@ window.addEventListener('load', () => {
     }, 200); // igual al tiempo de fadeMode
 }
 
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Inicializa EmailJS
+  emailjs.init("CQfLOBTxfMiPFbM0y");
+
+  const form = document.getElementById('formulario');
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // Captura los valores del formulario
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('mensaje').value;
+
+    // Enviar el formulario al administrador
+    emailjs.sendForm('service_hjdrs5n', 'template_4dvptte', this)
+      .then(function (response) {
+        console.log('Correo enviado con éxito al administrador', response);
+
+        // Mostrar el modal personalizado
+        mostrarModal();
+
+        // Resetear el formulario
+        form.reset();
+      })
+      .catch(function (error) {
+        console.error('Error al enviar al administrador', error);
+        alert('Hubo un error al enviar tu mensaje. Intenta nuevamente.');
+      });
+  });
+  
+  function mostrarModal() {
+    const modal = document.getElementById('modal');
+    const overlay = document.getElementById('overlay');
+    const icono = modal.querySelector('i');  // Seleccionamos el ícono
+  
+    modal.style.display = 'block';
+    overlay.style.display = 'block';
+  
+    // Forzar transición con un pequeño delay
+    setTimeout(() => {
+      modal.classList.add('show');
+      overlay.classList.add('show');
+      
+      // Aquí se puede añadir la animación al ícono si es necesario
+      icono.classList.add('animate__animated', 'animate__bounceIn'); // Ejemplo de animación
+    }, 10); // Retardo para asegurar que el modal se haya mostrado primero
+  
+    // Cerrar el modal automáticamente después de 5 segundos (5000ms)
+    setTimeout(() => {
+      cerrarModal(); // Llamamos a la función para cerrar el modal
+    }, 5000); // 5000ms = 5 segundos
+  }
+  
+  function cerrarModal() {
+    const modal = document.getElementById('modal');
+    const overlay = document.getElementById('overlay');
+    
+    modal.classList.remove('show');
+    overlay.classList.remove('show');
+  
+    // Eliminar la animación antes de ocultar el modal
+    const icono = modal.querySelector('i'); // Seleccionamos el ícono
+    icono.classList.remove('animate__animated', 'animate__bounceIn'); // Removemos la animación
+  
+    setTimeout(() => {
+      modal.style.display = 'none';
+      overlay.style.display = 'none';
+    }, 300); // El tiempo para ocultar después de la animación
+  }
+  
+  // Cierre con botón
+  const closeButton = document.getElementById('close-modal');
+  if (closeButton) {
+    closeButton.addEventListener('click', cerrarModal);
+  }  
+});

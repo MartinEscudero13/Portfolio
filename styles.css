@@ -66,7 +66,7 @@ button {
 }
 
 button:hover {
-    background-color: #800020;  /* Hover en burdeos */
+    background-color: #666666;  /* Hover en burdeos */
 }
 
 /* === MODO CLARO === */
@@ -487,6 +487,22 @@ body.light-mode .progress-bar {
     margin-top: 2rem;
 }
 
+.formulario input,
+.formulario textarea {
+  border: 1px solid #ccc;       /* Borde suave por defecto */
+  border-radius: 8px;           /* Bordes redondeados */
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  color: #b68c4d;
+  outline: none;                /* Quita la línea negra al hacer foco */
+  transition: border-color 0.3s ease;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+  border-color: #b68c4d;        /* Color burdeos al enfocar */
+}
+
 /* === FOOTER === */
 .footer {
     text-align: center;
@@ -518,38 +534,98 @@ body.light-mode .progress-bar {
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
+/* === OVERLAY === */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+  z-index: 999; /* Detrás del modal */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#overlay.show {
+  display: block;
+  opacity: 1;
+}
+
 /* === MODAL === */
 #modal {
-    display: none; /* Inicialmente oculto */
-    position: fixed;
-    top: 30%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #fff;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    opacity: 0; /* Empezará invisible */
-    transition: opacity 0.3s ease; /* Transición suave */
+  display: none; /* Se oculta con JS */
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fdfdfd;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  max-width: 400px;
+  width: 80%;
+  text-align: center;
+  z-index: 1000; /* Sobre el overlay */
+}
+
+#modal.show {
+  display: none;
+  opacity: 1;
+}
+
+#modal svg {
+  margin-bottom: 1rem;
+}
+
+#modal h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #800020; /* Burdeos */
+  font-weight: 600;
+}
+
+#modal p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 0rem;
+  line-height: 1.4;
+}
+
+#modal button {
+  background: #fff;
+  border: 2px solid #800020;
+  color: #800020;
+  font-size: 1.1rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+#modal button:hover {
+  background: #800020;
+  color: #fff;
+}
+
+#modal button:focus {
+  outline: none;
+}
+#modal i {
+    color: #b68c4d; /* Color azul */
+    font-size: 3rem; /* Tamaño del ícono */
   }
+@media (max-width: 600px) {
+  #modal {
+    width: 90%;
+  }
+}
+
   
-  #modal.show {
-    display: block; /* Muestra el modal */
-    opacity: 1; /* Lo hace visible */
-  }
-  
-  #modal button {
-    background: transparent;
-    border: none;
-    font-size: 1.2rem;
-    color: #333;
-    cursor: pointer;
-    margin-top: 1rem;
-  }
-  
-  #modal button:hover {
-    color: #e3c9a5; /* O el color que prefieras */
-  }
   
 /* === ANIMACIONES === */
 @keyframes spin {
