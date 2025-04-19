@@ -212,29 +212,30 @@
 </section>
 
 
-    <!-- CONTACTO -->
-    <section id="contacto" class="seccion contacto">
-      <h2>Contacto</h2>
-      <div class="Container-Formulario">
-        <div class="ContactoV"></div>
-        <form class="formulario" id="formulario">
-          <input type="text" placeholder="Tu nombre" required />
-          <input type="email" placeholder="Tu correo" required />
-          <textarea placeholder="Tu mensaje" required></textarea>
-          <button type="submit">Enviar</button>
-        </form>
-      </div>
-    </section>
-
+ <!-- CONTACTO -->
+<section id="contacto" class="seccion contacto">
+  <h2>Contacto</h2>
+  <div class="Container-Formulario">
+    <div class="ContactoV"></div>
+    <form class="formulario" id="formulario">
+      <input type="text" name="user_name" placeholder="Tu nombre" required />
+      <input type="email" name="user_email" placeholder="Tu correo" required />
+      <textarea name="message" placeholder="Tu mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</section>
   </main>
-
+  <div id="modal" style="display:none; position:fixed; top:30%; left:50%; transform:translateX(-50%); background:#fff; padding:2rem; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.2);">
+    <p>¡Gracias por tu mensaje!</p>
+  </div>
   <!-- FOOTER -->
   <footer class="footer">
     <p>&copy; 2025 - Martín Escudero. Sitio desarrollado con dedicación y pasión por el desarrollo web. Todos los derechos reservados.</p>
   </footer>
-  
-
   <!-- JS Principal -->
   <script src="script.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </body>
 </html>

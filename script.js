@@ -98,3 +98,36 @@ window.addEventListener('load', () => {
         body.classList.remove('fade-transition');
     }, 200); // igual al tiempo de fadeMode
 }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Inicializa EmailJS
+    emailjs.init("CQfLOBTxfMiPFbM0y"); // Tu public key
+
+    const form = document.getElementById('contact-form');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // Enviar usando sendForm
+      emailjs.sendForm('service_hjdrs5n', 'template_ghf873t', this)
+        .then(function (response) {
+          console.log('Correo enviado con éxito al administrador', response);
+
+          // Mostrar modal o mensaje
+          mostrarModal(); // Asegurate de tener esta función definida
+
+          // Resetear el formulario
+          form.reset();
+        })
+        .catch(function (error) {
+          console.error('Error al enviar al administrador', error);
+          alert('Hubo un error al enviar tu mensaje. Intenta nuevamente.');
+        });
+    });
+  });
+
+  function mostrarModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'block';
+    setTimeout(() => modal.style.display = 'none', 4000);
+  }
