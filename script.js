@@ -112,46 +112,41 @@ document.addEventListener("DOMContentLoaded", function () {
   function mostrarModal() {
     const modal = document.getElementById('modal');
     const overlay = document.getElementById('overlay');
-    const icono = modal.querySelector('i');  // Seleccionamos el ícono
   
+    // Mostrar modal y overlay
     modal.style.display = 'block';
     overlay.style.display = 'block';
   
-    // Forzar transición con un pequeño delay
+    // Agregar clase 'show' para animaciones CSS
     setTimeout(() => {
       modal.classList.add('show');
       overlay.classList.add('show');
-      
-      // Aquí se puede añadir la animación al ícono si es necesario
-      icono.classList.add('animate__animated', 'animate__bounceIn'); // Ejemplo de animación
-    }, 10); // Retardo para asegurar que el modal se haya mostrado primero
+    }, 100);
   
-    // Cerrar el modal automáticamente después de 5 segundos (5000ms)
+    // Cerrar automáticamente después de 5 segundos
     setTimeout(() => {
-      cerrarModal(); // Llamamos a la función para cerrar el modal
-    }, 5000); // 5000ms = 5 segundos
+      cerrarModal();
+    }, 5000);
   }
   
   function cerrarModal() {
     const modal = document.getElementById('modal');
     const overlay = document.getElementById('overlay');
-    
+  
+    // Quitar clase 'show' para iniciar la transición de salida
     modal.classList.remove('show');
     overlay.classList.remove('show');
   
-    // Eliminar la animación antes de ocultar el modal
-    const icono = modal.querySelector('i'); // Seleccionamos el ícono
-    icono.classList.remove('animate__animated', 'animate__bounceIn'); // Removemos la animación
-  
+    // Ocultar elementos después de la transición
     setTimeout(() => {
       modal.style.display = 'none';
       overlay.style.display = 'none';
-    }, 300); // El tiempo para ocultar después de la animación
+    }, 300); // Este tiempo debe coincidir con la duración de la transición en CSS
   }
   
-  // Cierre con botón
+  // Evento para botón de cierre
   const closeButton = document.getElementById('close-modal');
   if (closeButton) {
     closeButton.addEventListener('click', cerrarModal);
-  }  
-});
+  }
+});  

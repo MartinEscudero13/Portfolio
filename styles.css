@@ -50,7 +50,6 @@ input, textarea {
     padding: 0.8rem;
     border: none;
     border-radius: 5px;
-    background-color: #d3b79b;  /* Fondo crema */
     color: #800020;             /* Texto burdeos */
     resize: none;               /* Evita redimensionar el área */
 }
@@ -288,6 +287,7 @@ section {
 
 .boton-cv:hover {
     background-color: #800020;
+    color: #f5f5dc;
 }
 
 /* === SOBRE MÍ === */
@@ -342,6 +342,7 @@ h2 {
     margin-bottom: 2rem;
     font-size: 2rem;
     color: #f5f5dc;
+    font-weight: 900;
 }
 
 /* === HABILIDADES TECNICAS === */
@@ -426,7 +427,7 @@ body.light-mode .progress-bar {
   }
   
   .proyecto {
-    background-color: #d3b79b; /* Color base del esquema Riqueza Terrosa */
+    background-color: #ffffff; 
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
@@ -510,6 +511,10 @@ body.light-mode .progress-bar {
     background-color: #b68c4d;
     color: #f5f5dc;
 }
+.footer p {
+    margin-bottom: 0px;
+    font-weight: 700;
+}
 
 /* === PRELOADER === */
 #preloader {
@@ -549,8 +554,8 @@ body.light-mode .progress-bar {
 }
 
 #overlay.show {
-  display: block;
   opacity: 1;
+  display: block;
 }
 
 /* === MODAL === */
@@ -573,12 +578,8 @@ body.light-mode .progress-bar {
 }
 
 #modal.show {
-  display: none;
   opacity: 1;
-}
-
-#modal svg {
-  margin-bottom: 1rem;
+  display: block;
 }
 
 #modal h3 {
@@ -615,18 +616,20 @@ body.light-mode .progress-bar {
 #modal button:focus {
   outline: none;
 }
-#modal i {
-    color: #b68c4d; /* Color azul */
-    font-size: 3rem; /* Tamaño del ícono */
+
+#icon {
+    display: inline-block;
+    animation: flash; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1s; /* don't forget to set a duration! */
+    color: #4db33d;
   }
+
 @media (max-width: 600px) {
   #modal {
     width: 90%;
   }
 }
 
-  
-  
 /* === ANIMACIONES === */
 @keyframes spin {
     to { transform: rotate(360deg); }
@@ -652,12 +655,17 @@ body.light-mode .progress-bar {
         display: none;
         flex-direction: column;
         position: absolute;
-        background-color: #d3b79b; 
         top: 60px;
         right: 2rem;
         padding: 1rem;
         border-radius: 10px;
-        background-color: #d3b79b; 
+        margin-top: 20px;
+        background-color: #666666; 
+       
+    }
+
+    .nav-links a:hover {
+        color: #800020;
     }
 
     .nav-links.active {
