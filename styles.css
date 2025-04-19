@@ -544,6 +544,7 @@ body.light-mode .progress-bar {
         display: none;
         flex-direction: column;
         position: absolute;
+        background-color: #d3b79b; 
         top: 60px;
         right: 2rem;
         padding: 1rem;
