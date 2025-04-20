@@ -514,13 +514,11 @@ body.light-mode .progress-bar {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(11, 12, 16, 0.8);
     display: flex; /* solo esta */
     opacity: 1; /* inicia visible */
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    opacity: 1;
     transition: opacity 0.3s ease-in-out;
 }
 
