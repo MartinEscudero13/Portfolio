@@ -208,12 +208,14 @@ section {
 }
 
 .inicio {
+    display: visible;
+    opacity: 1;
     text-align: center;
     padding: 6rem 2rem 4rem;
     background: linear-gradient(160deg, var(--fondo-secundario), var(--acento));
-    animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 2s ease-in-out;
     border-radius: 100px;
-    transition: 0.5s ease-in-out;
+    
 }
 
 .foto-container {
