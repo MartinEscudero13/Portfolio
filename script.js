@@ -57,15 +57,6 @@ if (localStorage.getItem('modo') === 'claro') {
   document.body.classList.add('light-mode');
 }
 
-// Esperar que la página esté completamente cargada
-window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
-    preloader.style.opacity = '0';
-    setTimeout(() => {
-      preloader.style.display = 'none'; // Eliminar de la vista después de la animación
-    }, 600); // Tiempo igual al de la transición de opacidad
-  });
-  
   function toggleModo() {
     const body = document.body;
 
