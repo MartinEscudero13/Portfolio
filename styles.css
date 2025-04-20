@@ -509,6 +509,7 @@ body.light-mode .progress-bar {
 
 /* === PRELOADER === */
 #preloader {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -519,7 +520,7 @@ body.light-mode .progress-bar {
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.3s ease;
 }
 
 .spinner {
