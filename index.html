@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio | Web-Martin</title>
-    <head>
       <link rel="icon" type="image/png" href="LogoWebMartin/http.png">
       <!-- Animate.css -->
     <link
@@ -258,5 +257,25 @@
 <script src="script.js"></script>
 <!-- EmailJS -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    const overlay = document.getElementById("overlay");
 
-  
+    if (preloader) {
+      preloader.style.opacity = "0";
+      setTimeout(() => {
+        preloader.style.display = "none";
+      }, 600); // debe coincidir con tu transición en CSS
+    }
+
+    if (overlay) {
+      overlay.style.opacity = "0";
+      setTimeout(() => {
+        overlay.style.display = "none";
+      }, 600);
+    }
+  });
+</script>
+</body>
+</html>
