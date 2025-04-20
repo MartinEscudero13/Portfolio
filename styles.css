@@ -46,7 +46,7 @@ input,
 textarea,
 button,
 .boton-cv,
-.overlay-text h1,
+.presentacion-text h1,
 .skill-row i,
 .label,
 .progress-bar,
@@ -107,7 +107,7 @@ body.light-mode .boton-cv:hover {
 }
 
 body.light-mode h2,
-body.light-mode .overlay-text h1,
+body.light-mode .presentacion-text h1,
 body.light-mode .tech-icons i {
     color: var(--fondo-principal);
 }
@@ -233,12 +233,12 @@ section {
     object-fit: cover;
 }
 
-.overlay-text {
+.presentacion-text {
     text-align: center;
     margin-top: 2rem;
 }
 
-.overlay-text h1 {
+.presentacion-text h1 {
     font-size: 2.5rem;
     color: var(--titulos);
 }
@@ -677,7 +677,7 @@ body.light-mode .progress-bar {
         height: 180px;
     }
 
-    .overlay-text h1 {
+    .presentacion-text h1 {
         font-size: 1.8rem;
     }
 }
