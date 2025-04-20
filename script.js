@@ -100,41 +100,55 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
   
-  function mostrarModal() {
-    const modal = document.getElementById('modal');
-    const overlay = document.getElementById('overlay');
-  
-    // Mostrar modal y overlay
-    modal.style.display = 'block';
-    overlay.style.display = 'block';
-  
-    // Agregar clase 'show' para animaciones CSS
+  // Esperar que la página esté completamente cargada
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader");
+
+  if (preloader) {
+    preloader.style.opacity = "0";
     setTimeout(() => {
-      modal.classList.add('show');
-      overlay.classList.add('show');
-    }, 100);
-  
-    // Cerrar automáticamente después de 5 segundos
-    setTimeout(() => {
-      cerrarModal();
-    }, 5000);
+      preloader.style.display = "none";
+    }, 300); // debe coincidir con la transición en CSS
   }
-  
-  function cerrarModal() {
-    const modal = document.getElementById('modal');
-    const overlay = document.getElementById('overlay');
-  
-    // Quitar clase 'show' para iniciar la transición de salida
-    modal.classList.remove('show');
-    overlay.classList.remove('show');
-  
-    // Ocultar elementos después de la transición
-    setTimeout(() => {
-      modal.style.display = 'none';
-      overlay.style.display = 'none';
-    }, 300); // Este tiempo debe coincidir con la duración de la transición en CSS
-  }
-  
+});
+
+// Mostrar modal
+function mostrarModal() {
+  const modal = document.getElementById('modal');
+  const overlay = document.getElementById('overlay');
+
+  // Mostrar modal y overlay
+  modal.style.display = 'block';
+  overlay.style.display = 'block';
+
+  // Agregar clase 'show' para animaciones CSS
+  setTimeout(() => {
+    modal.classList.add('show');
+    overlay.classList.add('show');
+  }, 100);
+
+  // Cerrar automáticamente después de 5 segundos
+  setTimeout(() => {
+    cerrarModal();
+  }, 5000);
+}
+
+// Cerrar modal
+function cerrarModal() {
+  const modal = document.getElementById('modal');
+  const overlay = document.getElementById('overlay');
+
+  // Quitar clase 'show' para iniciar la transición de salida
+  modal.classList.remove('show');
+  overlay.classList.remove('show');
+
+  // Ocultar elementos después de la transición
+  setTimeout(() => {
+    modal.style.display = 'none';
+    overlay.style.display = 'none';
+  }, 300); // debe coincidir con la duración de la transición en CSS
+}
+
   // Evento para botón de cierre
   const closeButton = document.getElementById('close-modal');
   if (closeButton) {
