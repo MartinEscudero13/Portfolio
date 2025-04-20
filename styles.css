@@ -208,15 +208,14 @@ section {
 }
 
 .inicio {
-    display: visible;
-    opacity: 1;
     text-align: center;
     padding: 6rem 2rem 4rem;
     background: linear-gradient(160deg, var(--fondo-secundario), var(--acento));
     animation: fadeIn 2s ease-in-out;
+    animation-fill-mode: forwards; /* 👈 Mantiene el último frame (opacity: 1) */
     border-radius: 100px;
-    
-}
+  }
+  
 
 .foto-container {
     position: relative;
