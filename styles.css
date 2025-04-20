@@ -437,11 +437,11 @@ body.light-mode .progress-bar {
 
 .proyecto img {
     width: 100%;
-    max-height: 90%;
+    height: 200px;
     border-radius: 8px;
     margin-bottom: 1rem;
     border: 2px solid var(--acento);
-    object-fit: cover;
+    object-fit: 100% 100%;
 }
 
 .proyecto h3 {
