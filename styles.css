@@ -1,34 +1,43 @@
+/* ==================== COLORES ==================== */
+/* Esquema de Colores: Tecnológico Elegante */
+:root {
+    --fondo-principal: #0b0c10;           /* Negro Profundo */
+    --texto-principal: #c5c6c7;           /* Gris Claro Tecnológico */
+    --acento: #66fcf1;                    /* Cian Eléctrico */
+    --detalles: #45a29e;                  /* Turquesa Profundo */
+    --titulos: #ffffff;                   /* Blanco Puro */
+    --fondo-secundario: #1f2833;          /* Gris Oscuro Tecnológico */
+}
+
 /* Reset base */
 * {
-    margin: 0;                      /* Elimina márgenes por defecto */
-    padding: 0;                     /* Elimina relleno por defecto */
-    box-sizing: border-box;        /* Incluye padding y border en el tamaño total */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI', sans-serif;  /* Fuente profesional y legible */
-    background-color: #800020;                     /* Burdeos (fondo oscuro) */
-    color: #f5f5dc;                                /* Crema (texto claro) */
-    scroll-behavior: smooth;                       /* Scroll suave entre secciones */
-    transition: background-color 0.2s ease, color 0.2s ease;  /* Transición suave de modo */
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background-color: var(--fondo-principal);
+    color: var(--texto-principal);
+    scroll-behavior: smooth;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 a {
-    color: inherit;                 /* Mantiene el color del texto del contenedor */
-    text-decoration: none;         /* Elimina subrayado */
+    color: inherit;
+    text-decoration: none;
 }
 
-/* Animación rápida de cambio de modo */
 body.fade-transition {
-    animation: fadeMode 0.2s ease;  /* Desvanecer durante el cambio de modo */
+    animation: fadeMode 0.2s ease;
 }
 
 @keyframes fadeMode {
-    from { opacity: 0.7; }         /* Empieza con opacidad reducida */
-    to { opacity: 1; }             /* Termina totalmente visible */
+    from { opacity: 0.7; }
+    to { opacity: 1; }
 }
 
-/* Transiciones suaves para muchos elementos clave */
 body,
 .header,
 .footer,
@@ -45,18 +54,18 @@ button,
     transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Estilos base de inputs y botones */
 input, textarea {
     padding: 0.8rem;
     border: none;
     border-radius: 5px;
-    color: #800020;             /* Texto burdeos */
-    resize: none;               /* Evita redimensionar el área */
+    background-color: var(--fondo-secundario);
+    color: var(--texto-principal);
+    resize: none;
 }
 
 button {
-    background-color: #b68c4d;  /* Oro */
-    color: #f5f5dc;             /* Crema */
+    background-color: var(--acento);
+    color: var(--fondo-principal);
     padding: 0.8rem;
     border: none;
     border-radius: 5px;
@@ -65,71 +74,69 @@ button {
 }
 
 button:hover {
-    background-color: #666666;  /* Hover en burdeos */
+    background-color: var(--detalles);
 }
 
-/* === MODO CLARO === */
 body.light-mode {
-    background-color: #f5f5dc;  /* Fondo crema */
-    color: #800020;             /* Texto burdeos */
+    background-color: #f5f5dc;
+    color: #0b0c10;
 }
 
-/* Ajustes de elementos en modo claro */
 body.light-mode .header,
 body.light-mode .footer {
-    background-color: #b68c4d;  /* Fondo oro */
-    color: #f5f5dc;             /* Texto crema */
+    background-color: var(--detalles);
+    color: var(--fondo-principal);
 }
 
 body.light-mode .proyecto,
 body.light-mode input,
 body.light-mode textarea {
-    background-color: #ffffff;  /* Fondo blanco */
-    color: #800020;             /* Texto burdeos */
+    background-color: #ffffff;
+    color: #0b0c10;
 }
 
 body.light-mode .boton-cv,
 body.light-mode button {
-    background-color: #800020;  /* Fondo burdeos */
-    color: #f5f5dc;             /* Texto crema */
+    background-color: var(--fondo-principal);
+    color: #ffffff;
 }
 
 body.light-mode button:hover,
 body.light-mode .boton-cv:hover {
-    background-color: #b68c4d;  /* Hover oro */
+    background-color: var(--acento);
 }
 
 body.light-mode h2,
 body.light-mode .overlay-text h1,
 body.light-mode .tech-icons i {
-    color: #800020;             /* Elementos principales en burdeos */
+    color: var(--fondo-principal);
 }
 
 body.light-mode .tech-icons i:hover {
-    color: #b68c4d;             /* Hover oro */
+    color: var(--detalles);
 }
 
 body.light-mode .redes a:hover i {
-    color: #f5f5dc;             /* Hover en iconos crema */
+    color: var(--texto-principal);
 }
 
-/* === HEADER === */
 .header {
-    background-color: #800020;  /* Fondo burdeos */
+    background-color: var(--fondo-secundario);
     padding: 1rem 2rem;
-    position: sticky;           /* Se mantiene arriba al hacer scroll */
+    position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  /* Sombra sutil */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 #inicio {
-    scroll-margin-top: 65px;    /* Margen superior al hacer scroll a #inicio */
+    scroll-margin-top: 65px;
 }
 
 section {
     scroll-margin-top: 50px;
 }
+
 .nav {
     display: flex;
     justify-content: space-between;
@@ -137,42 +144,30 @@ section {
 }
 
 .logo {
-    font-size: 1.8rem;
     font-weight: bold;
-    background: linear-gradient(
-        rgba(0,0,0,0.1),
-        rgba(0,0,0,0.1)
-      ), linear-gradient(90deg,
-        #f5f5dc,
-        #e3c9a5,
-        #d3b79b,
-        #b68c4d,
-        #a05f3c,
-        #802040
-      );    background-size: 300% auto;
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
+    font-size: 1.8rem;
+    background: linear-gradient(270deg, #66fcf1, #45a29e, #66fcf1);
+    background-size: 600% 600%;
+    background-clip: text; /* Fallback para otros navegadores */
     -webkit-text-fill-color: transparent;
-    animation: shine 5s ease-in-out infinite;  /* Brillo continuo */
-    cursor: pointer;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 0 0 10px rgba(168, 192, 224, 0.2);
-    transition: transform 0.3s ease;
-}
+    animation: textFlow 4s ease infinite;
+    transition: 0.5s ease;
+  }
+  
+  @keyframes textFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 
 .logo:hover {
-    transform: scale(1.1);  /* Aumenta tamaño al pasar el mouse */
-}
-
-@keyframes shine {
-    0% { background-position: 200% center; }
-    100% { background-position: -200% center; }
+    transform: scale(1.1);
 }
 
 .menu-toggle {
     background: none;
     border: none;
-    color: #f5f5dc;
+    color: var(--texto-principal);
     font-size: 1.5rem;
     display: none;
 }
@@ -181,7 +176,6 @@ section {
     list-style: none;
     display: flex;
     gap: 1.5rem;
- 
 }
 
 .nav-links a {
@@ -190,7 +184,7 @@ section {
     font-size: 1rem;
     text-transform: uppercase;
     font-weight: bold;
-    color: #f5f5dc;
+    color: var(--texto-principal);
     transition: color 0.2s ease;
 }
 
@@ -201,23 +195,22 @@ section {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #f5f5dc;
+    background-color: var(--texto-principal);
     transition: width 0.2s ease;
 }
 
 .nav-links a:hover {
-    color: #666666;             /* Gris al pasar el mouse */
+    color: var(--acento);
 }
 
 .nav-links a:hover::after {
-    width: 100%;                /* Subrayado animado */
+    width: 100%;
 }
 
-/* === INICIO === */
 .inicio {
     text-align: center;
     padding: 6rem 2rem 4rem;
-    background: linear-gradient(160deg, #800020, #b68c4d);  /* Fondo degradado burdeos-oro */
+    background: linear-gradient(160deg, var(--fondo-secundario), var(--acento));
     animation: fadeIn 1s ease;
     border-radius: 100px;
 }
@@ -227,9 +220,9 @@ section {
     width: 220px;
     height: 220px;
     margin: 0 auto 2rem;
-    border-radius: 50%;                   /* Forma circular */
+    border-radius: 50%;
     overflow: hidden;
-    border: 4px solid #f5f5dc;            /* Borde crema */
+    border: 4px solid var(--texto-principal);
     box-shadow: 0 0 15px rgba(241, 250, 238, 0.4);
 }
 
@@ -246,17 +239,17 @@ section {
 
 .overlay-text h1 {
     font-size: 2.5rem;
-    color: #d3b79b;           /* Texto crema */
+    color: var(--titulos);
 }
 
 .nombre {
-    color: #f5f5dc;           /* Texto crema */
+    color: var(--texto-principal);
 }
 
 .subtitulo {
     font-size: 1.2rem;
     margin-top: 0.5rem;
-    color: #b68c4d;           /* Oro */
+    color: var(--acento);
 }
 
 .redes {
@@ -270,32 +263,31 @@ section {
 }
 
 .redes a:hover {
-    color: #800020;
-    transform: scale(1.2);   /* Ampliación al pasar el mouse */
+    color: var(--acento);
+    transform: scale(1.2);
 }
 
 .boton-cv {
     display: inline-block;
     margin-top: 1.5rem;
     padding: 0.8rem 1.5rem;
-    background-color: #b68c4d;
-    color: #f5f5dc;
+    background-color: var(--acento);
+    color: var(--fondo-principal);
     border-radius: 5px;
     font-weight: bold;
     transition: background 0.3s;
 }
 
 .boton-cv:hover {
-    background-color: #800020;
-    color: #f5f5dc;
+    background-color: var(--detalles);
+    color: #fff;
 }
 
-/* === SOBRE MÍ === */
 .sobre-mi {
-    color: #f5f5dc;
+    color: var(--texto-principal);
     padding: 2rem;
     border-radius: 1rem;
-    box-shadow: 0 0 20px #b68c4d;
+    box-shadow: 0 0 20px var(--acento);
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.8;
@@ -314,22 +306,20 @@ section {
 }
 
 .sobre-mi strong {
-    color: #b68c4d;
+    color: var(--acento);
     font-weight: bold;
 }
 
-/* Versión clara */
 body.light-mode .sobre-mi {
     background-color: #ffffff;
-    color: #800020;
-    box-shadow: 0 0 20px #b68c4d;
+    color: #0b0c10;
+    box-shadow: 0 0 20px var(--acento);
 }
 
 body.light-mode .sobre-mi strong {
-    color: #b68c4d;
+    color: var(--acento);
 }
 
-/* === SECCIONES GENERALES === */
 .seccion {
     padding: 3rem 2rem;
     max-width: 1000px;
@@ -341,11 +331,10 @@ h2 {
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2rem;
-    color: #f5f5dc;
+    color: var(--titulos);
     font-weight: 900;
 }
 
-/* === HABILIDADES TECNICAS === */
 .tech-skills {
     display: flex;
     flex-direction: column;
@@ -361,7 +350,7 @@ h2 {
 
 .skill-row i {
     font-size: 2rem;
-    color: #f5f5dc;
+    color: var(--texto-principal);
     min-width: 32px;
 }
 
@@ -377,7 +366,7 @@ h2 {
     justify-content: space-between;
     font-size: 1rem;
     font-weight: bold;
-    color: #f5f5dc;
+    color: var(--texto-principal);
 }
 
 .progress-bar {
@@ -395,7 +384,6 @@ h2 {
     animation: fillBar 2s ease forwards;
 }
 
-/* Niveles por tecnología */
 .progress.html { background-color: #e34c26; width: 95%; animation-delay: 0.2s; }
 .progress.css  { background-color: #2965f1; width: 90%; animation-delay: 0.4s; }
 .progress.js   { background-color: #f0db4f; width: 85%; animation-delay: 0.6s; }
@@ -411,7 +399,7 @@ h2 {
 
 body.light-mode .label,
 body.light-mode .skill-row i {
-    color: #800020;
+    color: #0b0c10;
 }
 
 body.light-mode .progress-bar {
@@ -422,12 +410,12 @@ body.light-mode .progress-bar {
 .proyectos-grid {
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  /* Un poco más ancho */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     margin-top: 2rem;
-  }
-  
-  .proyecto {
-    background-color: #ffffff; 
+}
+
+.proyecto {
+    background-color: var(--fondo-secundario);
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
@@ -436,49 +424,47 @@ body.light-mode .progress-bar {
     flex-direction: column;
     align-items: center;
     text-align: center;
-  }
-  
-  .proyecto:hover {
+}
+
+.proyecto:hover {
     transform: translateY(-8px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  }
-  
-  .proyecto img {
+}
+
+.proyecto img {
     width: 100%;
     max-height: 180px;
-   
     border-radius: 8px;
     margin-bottom: 1rem;
     background-size: cover;
-    border: 2px solid #6e3b3b; /* Burdeos oscuro */
-  }
-  
-  .proyecto h3 {
+    border: 2px solid var(--acento);
+}
+
+.proyecto h3 {
     font-size: 1.3rem;
-    color: #6e3b3b; /* Título en Burdeos */
+    color: var(--acento);
     margin-bottom: 0.5rem;
-  }
-  
-  .proyecto p {
-    color: #333;
+}
+
+.proyecto p {
+    color: var(--texto-principal);
     font-size: 1rem;
     margin-bottom: 1rem;
-  }
-  
-  .proyecto a {
-    background-color: #6e3b3b; /* Botón en burdeos */
-    color: #fff;
+}
+
+.proyecto a {
+    background-color: var(--acento);
+    color: var(--fondo-principal);
     text-decoration: none;
     padding: 0.5rem 1.2rem;
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s ease;
-  }
-  
-  .proyecto a:hover {
-    background-color: #8c4b4b;
-  }
-  
+}
+
+.proyecto a:hover {
+    background-color: var(--detalles);
+}
 
 /* === FORMULARIO === */
 .formulario {
@@ -490,27 +476,30 @@ body.light-mode .progress-bar {
 
 .formulario input,
 .formulario textarea {
-  border: 1px solid #ccc;       /* Borde suave por defecto */
-  border-radius: 8px;           /* Bordes redondeados */
-  padding: 0.8rem 1rem;
-  font-size: 1rem;
-  color: #b68c4d;
-  outline: none;                /* Quita la línea negra al hacer foco */
-  transition: border-color 0.3s ease;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 1rem;
+    font-size: 1rem;
+    background-color: var(--fondo-secundario);
+    color: var(--texto-principal);
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
 .formulario input:focus,
 .formulario textarea:focus {
-  border-color: #b68c4d;        /* Color burdeos al enfocar */
+    border: 2px solid var(--acento);
+    
 }
 
 /* === FOOTER === */
 .footer {
     text-align: center;
     padding: 1.5rem;
-    background-color: #b68c4d;
-    color: #f5f5dc;
+    background-color: var(--fondo-secundario);
+    color: var(--texto-principal);
 }
+
 .footer p {
     margin-bottom: 0px;
     font-weight: 700;
@@ -523,7 +512,7 @@ body.light-mode .progress-bar {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #800020af;
+    background-color: rgba(11, 12, 16, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -534,11 +523,17 @@ body.light-mode .progress-bar {
 .spinner {
     width: 50px;
     height: 50px;
-    border: 6px solid #f5f5dc;
+    border: 6px solid var(--texto-principal);
     border-top-color: transparent;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 /* === OVERLAY === */
 #overlay {
   display: none;
@@ -547,8 +542,8 @@ body.light-mode .progress-bar {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
-  z-index: 999; /* Detrás del modal */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -560,12 +555,12 @@ body.light-mode .progress-bar {
 
 /* === MODAL === */
 #modal {
-  display: none; /* Se oculta con JS */
+  display: none;
   position: fixed;
-  top: 25%;
+  top: 20%;
   left: 50%;
   transform: translateX(-50%);
-  background: #fdfdfd;
+  background: var(--fondo-secundario);
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
@@ -574,7 +569,7 @@ body.light-mode .progress-bar {
   max-width: 400px;
   width: 80%;
   text-align: center;
-  z-index: 1000; /* Sobre el overlay */
+  z-index: 1000;
 }
 
 #modal.show {
@@ -585,21 +580,21 @@ body.light-mode .progress-bar {
 #modal h3 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
-  color: #800020; /* Burdeos */
+  color: var(--acento);
   font-weight: 600;
 }
 
 #modal p {
   font-size: 1rem;
-  color: #444;
+  color: var(--texto-principal);
   margin-bottom: 0rem;
   line-height: 1.4;
 }
 
 #modal button {
-  background: #fff;
-  border: 2px solid #800020;
-  color: #800020;
+  background: transparent;
+  border: 2px solid var(--acento);
+  color: var(--acento);
   font-size: 1.1rem;
   padding: 0.6rem 1.4rem;
   border-radius: 8px;
@@ -609,8 +604,8 @@ body.light-mode .progress-bar {
 }
 
 #modal button:hover {
-  background: #800020;
-  color: #fff;
+  background: var(--acento);
+  color: var(--fondo-principal);
 }
 
 #modal button:focus {
@@ -618,11 +613,10 @@ body.light-mode .progress-bar {
 }
 
 #icon {
-    display: inline-block;
-    animation: flash; /* referring directly to the animation's @keyframe declaration */
-    animation-duration: 1s; /* don't forget to set a duration! */
-    color: #4db33d;
-  }
+  display: inline-block;
+  animation: flash 1s infinite;
+  color: #4db33d;
+}
 
 @media (max-width: 600px) {
   #modal {
@@ -631,10 +625,6 @@ body.light-mode .progress-bar {
 }
 
 /* === ANIMACIONES === */
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -643,6 +633,12 @@ body.light-mode .progress-bar {
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  #modal {
+    width: 90%;
+  }
 }
 
 /* === RESPONSIVE === */
@@ -660,12 +656,11 @@ body.light-mode .progress-bar {
         padding: 1rem;
         border-radius: 10px;
         margin-top: 20px;
-        background-color: #666666; 
-       
+        background-color: var(--fondo-secundario);
     }
 
     .nav-links a:hover {
-        color: #800020;
+        color: var(--acento);
     }
 
     .nav-links.active {
