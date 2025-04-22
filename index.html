@@ -25,6 +25,9 @@
     <!-- Librerías JS -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://unpkg.com/typewriter-effect@2.18.0/dist/core.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
     
   </head>
   
@@ -51,7 +54,7 @@
 
   <!-- CONTENIDO PRINCIPAL -->
   <main>
-
+<div id="tsparticles"> </div>
     <!-- INICIO -->
     <section id="inicio" class="seccion inicio">
       <div class="foto-container">
@@ -69,6 +72,7 @@
       </div>
     </section>
 
+
     <!-- SOBRE MÍ -->
     <section id="sobremi" class="sobre-mi">
       <h2>Sobre mí</h2>
@@ -77,7 +81,7 @@
       <p>Me enfoco en crear <strong>experiencias limpias</strong>, <strong>rápidas</strong>, <strong>accesibles</strong> y <strong>responsivas</strong>, cuidando cada detalle en términos de <strong>rendimiento</strong>, <strong>usabilidad</strong> y <strong>diseño visual</strong>.</p>
       <p>Mi enfoque combina <strong>lógica</strong>, <strong>creatividad</strong> y <strong>buenas prácticas</strong> para entregar productos de <strong>alta calidad</strong>. Siempre estoy en busca de <strong>nuevos desafíos</strong> que me permitan seguir creciendo profesionalmente.</p>
     </section>
-
+ 
     <!-- STACK TECNOLÓGICO -->
     <section id="tecnologias" class="seccion stack">
       <h2>Stack Tecnológico</h2>
@@ -257,5 +261,47 @@
 <script src="script.js"></script>
 <!-- EmailJS -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  tsParticles.load("tsparticles", {
+    fullScreen: { enable: true }, // 
+    particles: {
+      number: {
+        value: 100,
+        density: { enable: true, value_area: 800 }
+      },
+      color: {
+        value: ["#1d3557", "#2a9d8f", "#6c757d", "#a8dadc", "#457b9d"]
+      },
+      shape: {
+        type: "circle"
+      },
+      opacity: {
+        value: 0.5
+      },
+      size: {
+        value: { min: 2, max: 5 }
+      },
+      move: {
+        enable: true,
+        speed: 1,
+        direction: "none",
+        out_mode: "bounce"
+      }
+    },
+    interactivity: {
+      events: {
+        onhover: { enable: true, mode: "repulse" }
+      },
+      modes: {
+        repulse: { distance: 100 }
+      }
+    },
+    background: {
+      color: "transparent"
+    }
+  });
+</script>
+
 </body>
 </html>

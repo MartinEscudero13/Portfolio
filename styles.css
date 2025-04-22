@@ -647,6 +647,18 @@ body.light-mode .progress-bar {
   }
 }
 
+/* ===PARTICLES=== */
+#tsparticles {
+    position: fixed;       /* 👈 Se queda fijo al hacer scroll */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;           /* 👈 Siempre detrás del contenido */
+    pointer-events: none;  /* 👈 Para que no interfiera con clics */
+  }
+  
+
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
     .menu-toggle {
