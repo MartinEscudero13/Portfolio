@@ -108,7 +108,7 @@ window.addEventListener("load", () => {
     preloader.style.opacity = "0";
     setTimeout(() => {
       preloader.style.display = "none";
-    }, 300); // debe coincidir con la transición en CSS
+    }, 300); 
   }
 });
 
@@ -146,7 +146,7 @@ function cerrarModal() {
   setTimeout(() => {
     modal.style.display = 'none';
     overlay.style.display = 'none';
-  }, 300); // debe coincidir con la duración de la transición en CSS
+  }, 300); 
 }
 
   // Evento para botón de cierre
